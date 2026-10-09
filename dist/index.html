@@ -45,7 +45,7 @@
     </section>
 
     <section id="card" class="screen card-screen" aria-labelledby="card-title">
-      <header class="card-header"><button id="back-home" class="icon-button" aria-label="Voltar">←</button><div class="brand brand-header"><span>CAMPUS</span><b>+</b></div><span class="icon-button decorative">▭</span><h1 id="card-title">CARTEIRA ESTUDANTIL</h1></header>
+      <header class="card-header"><button id="back-home" class="icon-button" aria-label="Voltar">←</button><div class="brand brand-header"><span>CAMPUS</span><b>+</b></div><button id="landscape-open" class="icon-button" aria-label="Visualizar carteirinha em modo paisagem">▭</button><h1 id="card-title">CARTEIRA ESTUDANTIL</h1></header>
       <div class="student-card">
         <div class="card-top"><strong>CAMPUS+ &nbsp; FACULDADE MODELO</strong><span>DEMONSTRAÇÃO</span></div>
         <div class="card-content">
@@ -55,10 +55,27 @@
         <div class="card-line"></div><b class="watermark">NÃO VÁLIDO COMO DOCUMENTO</b>
       </div>
       <div class="scan-title"><span>▥</span><div><strong>QR de demonstração</strong><small>Não libera acesso a catracas</small></div></div>
-      <div class="qr-frame"><canvas id="qr" width="240" height="240" aria-label="Código visual de demonstração"></canvas><span class="qr-scan" aria-hidden="true"></span></div>
+      <button id="qr-open" class="qr-frame" type="button" aria-label="Ampliar QR de demonstração"><canvas id="qr" width="240" height="240" aria-label="Código visual de demonstração"></canvas><span class="qr-scan" aria-hidden="true"></span></button>
       <p class="generated" id="generated"></p><p class="validator">♢ Código ilustrativo — sem validade</p>
       <label class="offline"><span>⌁</span><strong>Carteirinha offline e acesso rápido</strong><input type="checkbox" role="switch"><i></i></label>
     </section>
+
+    <div id="qr-modal" class="view-modal" role="dialog" aria-modal="true" aria-labelledby="qr-popup-title" hidden>
+      <div class="view-backdrop" data-close="qr"></div>
+      <div class="qr-popup-panel">
+        <div class="popup-head"><span class="popup-icon">▥</span><div><strong id="qr-popup-title">QR de demonstração</strong><small>Não libera acesso a catracas</small></div><button id="qr-close" aria-label="Fechar QR ampliado">×</button></div>
+        <div class="popup-qr-box"><canvas id="qr-popup" width="300" height="300"></canvas><span class="popup-scan" aria-hidden="true"></span></div>
+        <p class="popup-generated"></p><p class="popup-validator">♢ Código ilustrativo — sem validade</p>
+      </div>
+    </div>
+
+    <div id="landscape-modal" class="landscape-modal" role="dialog" aria-modal="true" aria-label="Carteirinha e QR em modo paisagem" hidden>
+      <button id="landscape-close" class="landscape-close" aria-label="Fechar modo paisagem">×</button>
+      <div class="landscape-stage">
+        <div id="landscape-card-slot" class="landscape-card-slot"></div>
+        <div class="landscape-qr-area"><div class="landscape-qr-box"><canvas id="qr-landscape" width="320" height="320"></canvas></div><div class="landscape-qr-copy"><strong>QR de demonstração</strong><small>Não libera acesso a catracas</small><span>♢ Código ilustrativo — sem validade</span></div></div>
+      </div>
+    </div>
 
     <div id="logout-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="logout-title" hidden>
       <div class="backdrop"></div><div class="modal-card"><div class="modal-brand"><div class="brand brand-header"><span>CAMPUS</span><b>+</b></div></div><div class="logout-symbol">↪</div><h2 id="logout-title">Sair do aplicativo?</h2><p>Você precisará entrar novamente para acessar sua conta.</p><div class="modal-actions"><button id="logout-cancel">← Voltar</button><button id="logout-confirm">↪ Sair</button></div></div>

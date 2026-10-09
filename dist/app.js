@@ -7,7 +7,18 @@ document.querySelector('#login-form').addEventListener('submit',e=>{e.preventDef
 document.querySelector('#show-password').onclick=()=>{const p=document.querySelector('#password');p.type=p.type==='password'?'text':'password'};
 document.querySelector('#back-home').onclick=()=>show('home');
 const modal=document.querySelector('#logout-modal');document.querySelector('#logout-open').onclick=()=>{modal.hidden=false;document.querySelector('#logout-cancel').focus()};document.querySelector('#logout-cancel').onclick=()=>modal.hidden=true;document.querySelector('.backdrop').onclick=()=>modal.hidden=true;document.querySelector('#logout-confirm').onclick=()=>{modal.hidden=true;show('login')};
-document.addEventListener('keydown',e=>{if(e.key==='Escape')modal.hidden=true});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){modal.hidden=true;closeQrModal();closeLandscape()}});
 function toast(message){const t=document.querySelector('#toast');t.textContent=message;t.classList.add('show');clearTimeout(window.toastTimer);window.toastTimer=setTimeout(()=>t.classList.remove('show'),2200)}
 function drawDemoQR(){const c=document.querySelector('#qr'),x=c.getContext('2d'),n=29,s=c.width/n;x.fillStyle='#fff';x.fillRect(0,0,c.width,c.height);let seed=12345;const rnd=()=>((seed=(seed*9301+49297)%233280)/233280);const finder=(a,b)=>{x.fillStyle='#050505';x.fillRect(a*s,b*s,7*s,7*s);x.fillStyle='#fff';x.fillRect((a+1)*s,(b+1)*s,5*s,5*s);x.fillStyle='#050505';x.fillRect((a+2)*s,(b+2)*s,3*s,3*s)};for(let y=0;y<n;y++)for(let z=0;z<n;z++){const reserved=(z<8&&y<8)||(z>20&&y<8)||(z<8&&y>20);if(!reserved&&rnd()>.54){x.fillStyle='#050505';x.fillRect(Math.floor(z*s),Math.floor(y*s),Math.ceil(s),Math.ceil(s))}}finder(1,1);finder(21,1);finder(1,21);x.strokeStyle='#0c52d8';x.lineWidth=3;x.strokeRect(2,2,c.width-4,c.height-4)}
-drawDemoQR();document.querySelector('#generated').textContent='Gerado em '+new Intl.DateTimeFormat('pt-BR',{dateStyle:'short',timeStyle:'short'}).format(new Date());
+drawDemoQR();const generatedAt='Gerado em '+new Intl.DateTimeFormat('pt-BR',{dateStyle:'short',timeStyle:'short'}).format(new Date());document.querySelector('#generated').textContent=generatedAt;
+
+const qrModal=document.querySelector('#qr-modal');
+const landscapeModal=document.querySelector('#landscape-modal');
+const copyQr=target=>{const source=document.querySelector('#qr'),ctx=target.getContext('2d');ctx.clearRect(0,0,target.width,target.height);ctx.imageSmoothingEnabled=false;ctx.drawImage(source,0,0,target.width,target.height)};
+const closeQrModal=()=>{qrModal.hidden=true;document.body.style.overflow=''};
+const closeLandscape=()=>{landscapeModal.hidden=true;document.body.style.overflow=''};
+document.querySelector('#qr-open').onclick=()=>{copyQr(document.querySelector('#qr-popup'));document.querySelector('.popup-generated').textContent=generatedAt;qrModal.hidden=false;document.body.style.overflow='hidden';document.querySelector('#qr-close').focus()};
+document.querySelector('#qr-close').onclick=closeQrModal;
+document.querySelector('[data-close="qr"]').onclick=closeQrModal;
+document.querySelector('#landscape-open').onclick=()=>{const slot=document.querySelector('#landscape-card-slot');slot.replaceChildren(document.querySelector('.student-card').cloneNode(true));copyQr(document.querySelector('#qr-landscape'));landscapeModal.hidden=false;document.body.style.overflow='hidden';document.querySelector('#landscape-close').focus()};
+document.querySelector('#landscape-close').onclick=closeLandscape;

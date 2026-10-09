@@ -16,3 +16,22 @@
 .avatar .profile-photo{width:100%;height:100%;object-fit:cover;transform:scale(2.8);transform-origin:50% 27%}
 .card-photo .profile-photo{position:static;width:100%;height:100%;object-fit:cover;transform:scale(1.9);transform-origin:50% 28%}
 .card-content dd{overflow-wrap:anywhere}
+
+.qr-frame{padding:0;cursor:pointer;appearance:none;-webkit-tap-highlight-color:transparent;transition:transform .18s ease,box-shadow .18s ease}
+.qr-frame:active{transform:scale(.975);box-shadow:0 7px 18px #164cb42b,0 0 0 5px #dce8ff}
+.view-modal[hidden],.landscape-modal[hidden]{display:none}
+.view-modal{position:fixed;inset:0;z-index:70;display:grid;place-items:center;padding:18px}
+.view-backdrop{position:absolute;inset:0;background:#02071eea;backdrop-filter:blur(9px)}
+.qr-popup-panel{position:relative;width:min(100%,368px);padding:24px 20px 28px;border:1px solid #4b70ff77;border-radius:30px;background:linear-gradient(145deg,#13058c,#0046ae);box-shadow:0 28px 80px #000b;color:white}
+.popup-head{display:grid;grid-template-columns:48px 1fr 46px;gap:12px;align-items:center;margin-bottom:18px}
+.popup-head strong,.popup-head small{display:block}.popup-head strong{font-size:1rem}.popup-head small{color:#b7c8f3;font-size:.75rem;margin-top:3px}.popup-icon{width:46px;height:46px;border:1px solid #ffffff3b;border-radius:12px;display:grid;place-items:center;font-size:1.55rem}.popup-head button,.landscape-close{border:1px solid #ffffff48;background:#ffffff12;color:white;border-radius:13px;font-size:2rem;font-weight:200;line-height:1;display:grid;place-items:center}.popup-head button{width:46px;height:46px}.popup-qr-box{position:relative;width:min(100%,318px);aspect-ratio:1;margin:auto;background:white;border-radius:22px;padding:9px;box-shadow:0 0 0 4px #0a36b6,0 12px 28px #00165f88;overflow:hidden}.popup-qr-box canvas{width:100%;height:100%}.popup-scan{position:absolute;left:12px;right:12px;top:12px;height:3px;border-radius:9px;background:#1675ff;box-shadow:0 0 12px #1675ff;animation:popup-scan 3s ease-in-out infinite}.popup-generated,.popup-validator{text-align:center;color:#aebfe9;font-size:.76rem}.popup-generated{margin:23px 0 10px}.popup-validator{margin:0}
+.landscape-modal{position:fixed;inset:0;z-index:75;overflow:hidden;background:radial-gradient(circle at 56% 45%,#075bd1 0,#042790 38%,#06006c 72%,#03022c 100%);color:white}
+.landscape-modal:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,#ffffff08,transparent 35%,#218dff19 55%,transparent 75%);pointer-events:none}
+.landscape-close{position:absolute;right:max(18px,env(safe-area-inset-right));top:max(18px,env(safe-area-inset-top));z-index:4;width:50px;height:50px}
+.landscape-stage{position:absolute;inset:0;display:grid;grid-template-columns:minmax(350px,1fr) minmax(320px,1fr);gap:6vw;align-items:center;justify-items:center;padding:46px 7vw}
+.landscape-card-slot{width:100%;max-width:430px}.landscape-card-slot .student-card{width:100%;margin:0;animation:none;box-shadow:0 24px 55px #0007}.landscape-card-slot .student-card:before{animation:card-glint 4.6s ease-in-out infinite}
+.landscape-qr-area{display:grid;grid-template-columns:auto minmax(110px,150px);align-items:center;gap:20px}.landscape-qr-box{width:min(34vw,360px);aspect-ratio:1;padding:14px;border-radius:24px;background:white;box-shadow:0 0 0 4px #cfe0ff,0 0 0 8px #2450cd,0 25px 55px #0006}.landscape-qr-box canvas{width:100%;height:100%}.landscape-qr-copy{display:flex;flex-direction:column;gap:8px}.landscape-qr-copy strong{font-size:1.15rem}.landscape-qr-copy small,.landscape-qr-copy span{color:#b9cdf7;font-size:.78rem;line-height:1.35}
+@keyframes popup-scan{0%,100%{transform:translateY(7px);opacity:.4}50%{transform:translateY(278px);opacity:1}}
+@media(orientation:portrait) and (max-width:700px){.landscape-stage{left:50%;top:50%;right:auto;bottom:auto;width:100dvh;height:100dvw;transform:translate(-50%,-50%) rotate(90deg);grid-template-columns:minmax(310px,1fr) minmax(270px,1fr);gap:5dvh;padding:22px 62px 22px 28px}.landscape-card-slot{max-width:360px}.landscape-card-slot .student-card{font-size:.88rem}.landscape-qr-area{grid-template-columns:auto 100px;gap:14px}.landscape-qr-box{width:min(38dvh,310px)}.landscape-qr-copy strong{font-size:.95rem}.landscape-close{right:18px;top:18px}}
+@media(max-width:380px){.qr-popup-panel{padding-left:15px;padding-right:15px}.popup-qr-box{width:280px}}
+@media(prefers-reduced-motion:reduce){.popup-scan{animation:none;top:50%}}
