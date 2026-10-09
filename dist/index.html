@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#071b69">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Campus+">
+  <meta name="description" content="Protótipo demonstrativo de portal acadêmico e carteirinha estudantil.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23071969'/%3E%3Cpath d='M10 25 32 14l22 11-22 11L10 25Zm8 8v10c8 7 20 7 28 0V33l-14 7-14-7Z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <title>Campus+ — Portal Acadêmico</title>
+</head>
+<body>
+  <main id="app" class="app-shell">
+    <section id="login" class="screen login-screen active" aria-labelledby="login-title">
+      <div class="orb orb-one"></div><div class="orb orb-two"></div>
+      <div class="login-card glass">
+        <div class="brand brand-large" aria-label="Campus mais"><span>CAMPUS</span><b>+</b></div>
+        <p class="demo-badge">AMBIENTE DEMONSTRATIVO</p>
+        <h1 id="login-title" class="sr-only">Entrar no portal acadêmico</h1>
+        <form id="login-form">
+          <label for="ra">RA (NÚMERO DA MATRÍCULA)</label>
+          <input id="ra" inputmode="text" autocomplete="username" placeholder="Digite seu RA" value="DEMO123">
+          <label for="password">SENHA</label>
+          <div class="password-wrap"><input id="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" value="demonstracao"><button class="eye" type="button" id="show-password" aria-label="Mostrar senha">◉</button></div>
+          <button class="primary" type="submit"><span>↪</span> Entrar</button>
+          <label class="switch-row"><span>Usar Face ID/Touch ID no próximo acesso</span><input type="checkbox" role="switch"><i></i></label>
+        </form>
+      </div>
+      <small class="version">Protótipo • v1.0</small>
+    </section>
+
+    <section id="home" class="screen home-screen" aria-labelledby="home-title">
+      <header class="hero">
+        <div class="top-row"><div class="brand brand-header"><span>CAMPUS</span><b>+</b></div><button id="logout-open" class="icon-button" aria-label="Sair">↪</button></div>
+        <div class="profile-row">
+          <div class="avatar avatar-placeholder" aria-label="Avatar do estudante">AE</div>
+          <div><h1 id="home-title">Olá, ALUNO</h1><p>ENGENHARIA CIVIL</p><div class="chips"><span>▣ DEMO123</span><strong>● ATIVO</strong></div></div>
+        </div>
+      </header>
+      <div class="menu-grid" id="menu-grid"></div>
+    </section>
+
+    <section id="card" class="screen card-screen" aria-labelledby="card-title">
+      <header class="card-header"><button id="back-home" class="icon-button" aria-label="Voltar">←</button><div class="brand brand-header"><span>CAMPUS</span><b>+</b></div><span class="icon-button decorative">▭</span><h1 id="card-title">CARTEIRA ESTUDANTIL</h1></header>
+      <div class="student-card">
+        <div class="card-top"><strong>CAMPUS+ &nbsp; FACULDADE MODELO</strong><span>DEMONSTRAÇÃO</span></div>
+        <div class="card-content">
+          <div><div class="card-photo avatar-placeholder">AE</div><em>ATIVO</em></div>
+          <dl><div><dt>NOME</dt><dd>ALUNO EXEMPLO</dd></div><div><dt>MATRÍCULA</dt><dd class="gold">DEMO123</dd></div><div><dt>CURSO</dt><dd>ENGENHARIA CIVIL</dd></div><div><dt>CAMPUS</dt><dd>CAMPUS CENTRAL</dd></div><div><dt>VALIDADE</dt><dd>31/01/2027</dd></div></dl>
+        </div>
+        <div class="card-line"></div><b class="watermark">NÃO VÁLIDO COMO DOCUMENTO</b>
+      </div>
+      <div class="scan-title"><span>▥</span><div><strong>QR de demonstração</strong><small>Não libera acesso a catracas</small></div></div>
+      <div class="qr-frame"><canvas id="qr" width="270" height="270" aria-label="Código visual de demonstração"></canvas></div>
+      <p class="generated" id="generated"></p><p class="validator">♢ Código ilustrativo — sem validade</p>
+      <label class="offline"><span>⌁</span><strong>Carteirinha offline e acesso rápido</strong><input type="checkbox" role="switch"><i></i></label>
+    </section>
+
+    <div id="logout-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="logout-title" hidden>
+      <div class="backdrop"></div><div class="modal-card"><div class="modal-brand"><div class="brand brand-header"><span>CAMPUS</span><b>+</b></div></div><div class="logout-symbol">↪</div><h2 id="logout-title">Sair do aplicativo?</h2><p>Você precisará entrar novamente para acessar sua conta.</p><div class="modal-actions"><button id="logout-cancel">← Voltar</button><button id="logout-confirm">↪ Sair</button></div></div>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
