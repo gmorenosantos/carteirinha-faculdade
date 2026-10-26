@@ -27,3 +27,5 @@
 .qr-popup-panel{max-height:calc(100dvh - 48px);overflow:auto;}
 @media(max-width:600px){.app-shell{max-width:none;}.card-header{padding-top:calc(env(safe-area-inset-top) + 20px);}.offline{margin-top:32px;}.card-content{grid-template-columns:72px 1fr;gap:12px;}.card-content dl div{grid-template-columns:70px 1fr;}.card-content dd{font-size:12px;}.card-content dt{font-size:10px;}}
 @media(prefers-reduced-motion:reduce){.student-card:before,#landscape-modal .student-card:before{animation:none;}}
+
+.menu-item .menu-icon img{display:block;width:40px;height:40px;object-fit:contain;mix-blend-mode:multiply;}
