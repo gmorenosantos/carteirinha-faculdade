@@ -1,0 +1,29 @@
+/* One proportional landscape composition, fitted to the visual viewport. */
+#landscape-modal{background:linear-gradient(120deg,#080074,#10109b 48%,#0042a1);}
+#landscape-modal .landscape-stage{inset:auto;left:50%;top:50%;width:900px;height:400px;padding:0;gap:0;display:grid;grid-template-columns:450px 450px;align-items:center;align-content:center;justify-content:center;justify-items:center;transform:translate(-50%,-50%) rotate(var(--card-rotation,0deg)) scale(var(--card-scale,1));transform-origin:center;}
+#landscape-modal .landscape-card-slot{width:360px;max-width:none;}
+#landscape-modal .student-card{width:360px;min-height:232px;margin:0;padding:16px;border:1px solid #ffffff33;border-radius:20px;background:linear-gradient(145deg,#171094,#063daa);animation:none;}
+#landscape-modal .card-top{font-size:9px;letter-spacing:.04em;gap:8px;padding-bottom:10px;border-bottom:1px solid #ffffff1a;}
+#landscape-modal .card-top span{font-size:8px;}
+#landscape-modal .card-content{grid-template-columns:70px 1fr;gap:14px;margin-top:14px;}
+#landscape-modal .card-photo{height:91px;}
+#landscape-modal .card-content dl div{grid-template-columns:68px 1fr;margin-bottom:7px;}
+#landscape-modal .card-content dt{font-size:9px;}
+#landscape-modal .card-content dd{font-size:11px;line-height:1.2;overflow-wrap:normal;}
+#landscape-modal .watermark{font-size:8px;}
+#landscape-modal .card-content em{font-size:10px;}
+#landscape-modal .landscape-qr-area{width:450px;height:400px;display:flex;flex-direction:column;justify-content:center;gap:17px;background:#ffffff03;}
+#landscape-modal .landscape-qr-copy{order:-1;max-width:none;text-align:center;gap:5px;}
+#landscape-modal .landscape-qr-copy strong{font-size:14px;font-weight:500;letter-spacing:.04em;}
+#landscape-modal .landscape-qr-copy small{font-size:10px;}
+#landscape-modal .landscape-qr-box{width:286px;height:286px;padding:22px;border-radius:19px;}
+#landscape-modal .landscape-close{top:max(16px,env(safe-area-inset-top));right:max(16px,env(safe-area-inset-right));width:44px;height:44px;}
+.qr-frame{width:218px;height:218px;padding:17px;border:2px solid #17128b;margin:16px auto 18px;border-radius:18px;}
+.qr-frame canvas{display:block;width:180px;height:180px;image-rendering:pixelated;}
+.popup-qr-box{width:min(100%,290px);padding:22px;}
+.popup-qr-box canvas,.landscape-qr-box canvas{display:block;image-rendering:pixelated;}
+.student-card{animation:none;background:linear-gradient(125deg,#0c087c,#0649aa);}
+.student-card:before{animation:card-glint 7s ease-in-out infinite;opacity:.25;}
+.qr-popup-panel{max-height:calc(100dvh - 48px);overflow:auto;}
+@media(max-width:600px){.app-shell{max-width:none;}.card-header{padding-top:calc(env(safe-area-inset-top) + 20px);}.offline{margin-top:32px;}.card-content{grid-template-columns:72px 1fr;gap:12px;}.card-content dl div{grid-template-columns:70px 1fr;}.card-content dd{font-size:12px;}.card-content dt{font-size:10px;}}
+@media(prefers-reduced-motion:reduce){.student-card:before,#landscape-modal .student-card:before{animation:none;}}
