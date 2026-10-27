@@ -15,7 +15,7 @@
 @media(max-width:360px){.qr-frame{width:244px;height:244px}.qr-frame canvas{width:226px;height:226px}@keyframes qr-scan{0%,100%{transform:translateY(5px);opacity:.45}50%{transform:translateY(203px);opacity:1}}}
 @media(prefers-reduced-motion:reduce){.student-card,.student-card:before,.qr-scan{animation:none}.qr-scan{top:50%;opacity:.6}}
 .avatar .profile-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%;transform:none;transform-origin:center}
-.card-photo .profile-photo{position:static;width:100%;height:100%;object-fit:contain;object-position:center center;transform:none;transform-origin:center}
+.card-photo .profile-photo{position:static;width:100%;height:100%;object-fit:contain;object-position:center center;transform:none;transform-origin:center} 
 .card-content dd{overflow-wrap:anywhere}
 
 .qr-frame{padding:0;cursor:pointer;appearance:none;-webkit-tap-highlight-color:transparent;transition:transform .18s ease,box-shadow .18s ease}
