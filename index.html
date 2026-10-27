@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+  <meta name="theme-color" content="#071b69">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Campus+">
+  <meta name="description" content="Protótipo demonstrativo de portal acadêmico e carteirinha estudantil.">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23071969'/%3E%3Cpath d='M10 25 32 14l22 11-22 11L10 25Zm8 8v10c8 7 20 7 28 0V33l-14 7-14-7Z' fill='white'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="responsive-card.css?v=9">
+  <title>Campus+ — Portal Acadêmico</title>
+</head>
+<body>
+  <main id="app" class="app-shell">
+    <section id="login" class="screen login-screen active" aria-labelledby="login-title">
+      <div class="orb orb-one"></div><div class="orb orb-two"></div>
+      <div class="login-card glass">
+        <div class="brand brand-large" aria-label="UNIP — protótipo"><span>UNIP</span></div>
+        <p class="demo-badge">PROTÓTIPO NÃO OFICIAL</p>
+        <h1 id="login-title" class="sr-only">Entrar no portal acadêmico</h1>
+        <form id="login-form">
+          <label for="ra">RA (NÚMERO DA MATRÍCULA)</label>
+          <input id="ra" inputmode="text" autocomplete="username" placeholder="Digite seu RA" value="N9087R4">
+          <label for="password">SENHA</label>
+          <div class="password-wrap"><input id="password" type="password" autocomplete="current-password" placeholder="Digite sua senha" value="demonstracao"><button class="eye" type="button" id="show-password" aria-label="Mostrar senha">◉</button></div>
+          <button class="primary" type="submit"><span>↪</span> Entrar</button>
+          <label class="switch-row"><span>Usar Face ID/Touch ID no próximo acesso</span><input type="checkbox" role="switch"><i></i></label>
+        </form>
+      </div>
+      <small class="version">v1.0</small>
+    </section>
+
+    <section id="home" class="screen home-screen" aria-labelledby="home-title">
+      <header class="hero">
+        <div class="top-row"><div class="brand brand-header"><span>UNIP</span></div><button id="logout-open" class="icon-button" aria-label="Sair">↪</button></div>
+        <p class="demo-badge">PROTÓTIPO NÃO OFICIAL</p>
+        <div class="profile-row">
+          <div class="avatar" aria-label="Foto de Gabriel"><img class="profile-photo" src="gabriel.png" alt="Foto de Gabriel"></div>
+          <div><h1 id="home-title">Olá, GABRIEL</h1><p>CIÊNCIA DA COMPUTAÇÃO</p><div class="chips"><span>▣ N9087R4</span><strong>● ATIVO</strong></div></div>
+        </div>
+      </header>
+      <div class="menu-grid" id="menu-grid"></div>
+    </section>
+
+    <section id="card" class="screen card-screen" aria-labelledby="card-title">
+      <header class="card-header"><button id="back-home" class="icon-button" aria-label="Voltar">←</button><div class="brand brand-header"><span>CAMPUS</span><b>+</b></div><button id="landscape-open" class="icon-button" aria-label="Visualizar carteirinha em modo paisagem">▭</button><h1 id="card-title">CARTEIRA ESTUDANTIL</h1></header>
+      <div class="student-card">
+        <div class="card-top"><strong>CAMPUS+ &nbsp; FACULDADE MODELO</strong><span>DEMONSTRAÇÃO</span></div>
+        <div class="card-content">
+          <div><div class="card-photo"><img class="profile-photo" src="gabriel.png" alt="Foto de Gabriel"></div><em>ATIVO</em></div>
+          <dl><div><dt>NOME</dt><dd>GABRIEL</dd></div><div><dt>MATRÍCULA</dt><dd class="gold">N9087R4</dd></div><div><dt>RG</dt><dd>379570968</dd></div><div><dt>CURSO</dt><dd>CIÊNCIA DA COMPUTAÇÃO</dd></div><div><dt>CAMPUS</dt><dd>VERGUEIRO</dd></div><div><dt>VALIDADE</dt><dd>31/01/2027</dd></div></dl>
+        </div>
+        <div class="card-line"></div><b class="watermark">Protótipo — não válido como documento</b>
+      </div>
+      <div class="scan-title"><span>▥</span><div><strong>QR ilustrativo</strong><small>Não libera acesso a catracas</small></div></div>
+      <button id="qr-open" class="qr-frame" type="button" aria-label="Ampliar QR de demonstração"><canvas id="qr" width="240" height="240" aria-label="Código visual de demonstração"></canvas></button>
+      <p class="generated" id="generated"></p><p class="validator">♢ Código ilustrativo — sem validade</p>
+      <label class="offline"><span>⌁</span><strong>Carteirinha offline e acesso rápido</strong><input type="checkbox" role="switch"><i></i></label>
+    </section>
+
+    <div id="qr-modal" class="view-modal" role="dialog" aria-modal="true" aria-labelledby="qr-popup-title" hidden>
+      <div class="view-backdrop" data-close="qr"></div>
+      <div class="qr-popup-panel">
+        <div class="popup-head"><span class="popup-icon">▥</span><div><strong id="qr-popup-title">QR de demonstração</strong><small>Não libera acesso a catracas</small></div><button id="qr-close" aria-label="Fechar QR ampliado">×</button></div>
+        <div class="popup-qr-box"><canvas id="qr-popup" width="300" height="300"></canvas></div>
+        <p class="popup-generated"></p><p class="popup-validator">♢ Código ilustrativo — sem validade</p>
+      </div>
+    </div>
+
+    <div id="landscape-modal" class="landscape-modal" role="dialog" aria-modal="true" aria-label="Carteirinha e QR em modo paisagem" hidden>
+      <button id="landscape-close" class="landscape-close" aria-label="Fechar modo paisagem">×</button>
+      <div class="landscape-stage">
+        <div id="landscape-card-slot" class="landscape-card-slot"></div>
+        <div class="landscape-qr-area"><div class="landscape-qr-box"><canvas id="qr-landscape" width="320" height="320"></canvas></div><div class="landscape-qr-copy"><strong>Código de verificação</strong><small>QR demonstrativo — sem validade</small></div></div>
+      </div>
+    </div>
+
+    <div id="logout-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="logout-title" hidden>
+      <div class="backdrop"></div><div class="modal-card"><div class="modal-brand"><div class="brand brand-header"><span>CAMPUS</span><b>+</b></div></div><div class="logout-symbol">↪</div><h2 id="logout-title">Sair do aplicativo?</h2><p>Você precisará entrar novamente para acessar sua conta.</p><div class="modal-actions"><button id="logout-cancel">← Voltar</button><button id="logout-confirm">↪ Sair</button></div></div>
+    </div>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>

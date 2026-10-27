@@ -1,0 +1,9 @@
+{
+  "name": "Campus+ Portal Acadêmico",
+  "short_name": "Campus+",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#071b69",
+  "theme_color": "#071b69",
+  "description": "Protótipo demonstrativo de portal acadêmico."
+}
