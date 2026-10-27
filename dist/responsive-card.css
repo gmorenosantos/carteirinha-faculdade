@@ -29,3 +29,11 @@
 @media(prefers-reduced-motion:reduce){.student-card:before,#landscape-modal .student-card:before{animation:none;}}
 
 .menu-item .menu-icon img{display:block;width:40px;height:40px;object-fit:contain;mix-blend-mode:multiply;}
+/* Extend the app background to the viewport edges, including iOS safe areas. */
+html,body{background:#071b69;margin:0;padding:0;min-height:100dvh;}
+.app-shell{min-height:100dvh;border-radius:0;}
+.screen{min-height:100dvh;}
+.login-screen{border-radius:0;padding-top:max(15svh,calc(env(safe-area-inset-top) + 70px));}
+.hero{padding-top:calc(env(safe-area-inset-top) + 24px);}
+.card-header{padding-top:calc(env(safe-area-inset-top) + 20px);}
+@media(pointer:coarse){.app-shell{max-width:none;box-shadow:none;}}
