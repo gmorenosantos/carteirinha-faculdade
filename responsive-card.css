@@ -37,3 +37,68 @@ html,body{background:#071b69;margin:0;padding:0;min-height:100dvh;}
 .hero{padding-top:calc(env(safe-area-inset-top) + 24px);}
 .card-header{padding-top:calc(env(safe-area-inset-top) + 20px);}
 @media(pointer:coarse){.app-shell{max-width:none;box-shadow:none;}}
+
+/* FOTO 3x4 — AJUSTE PARA CARTEIRINHA */
+.student-card .card-photo {
+    width: 70px;
+    height: 94px;
+    aspect-ratio: 3 / 4;
+    min-width: 70px;
+    background: #ffffff;
+    border-radius: 7px;
+    overflow: hidden;
+    display: block;
+    flex-shrink: 0;
+    object-fit: contain;
+    object-position: center center;
+}
+
+/* Suporta foto inserida dentro de uma div */
+.student-card .card-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    background: #ffffff;
+}
+
+/* ORGANIZAÇÃO DOS DADOS AO LADO DA FOTO */
+.student-card .card-content {
+    display: grid;
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+}
+
+/* CARTEIRINHA EM MODO PAISAGEM */
+#landscape-modal .student-card .card-photo {
+    width: 70px;
+    height: 94px;
+}
+
+#landscape-modal .student-card .card-content {
+    grid-template-columns: 70px minmax(0, 1fr);
+    gap: 14px;
+    align-items: start;
+}
+
+/* AJUSTES PARA CELULAR */
+@media (max-width: 600px) {
+    .student-card .card-content {
+        grid-template-columns: 72px minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .student-card .card-photo {
+        width: 72px;
+        height: 96px;
+        min-width: 72px;
+    }
+
+    #landscape-modal .student-card .card-photo {
+        width: 70px;
+        height: 94px;
+        min-width: 70px;
+    }
+}
