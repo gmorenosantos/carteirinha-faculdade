@@ -12,11 +12,11 @@
 #landscape-modal .card-content dd{font-size:11px;line-height:1.2;overflow-wrap:normal;}
 #landscape-modal .watermark{font-size:8px;}
 #landscape-modal .card-content em{font-size:10px;}
-#landscape-modal .landscape-qr-area{width:450px;height:400px;display:flex;flex-direction:column;justify-content:center;gap:17px;background:#ffffff03;}
+#landscape-modal .landscape-qr-area{width:450px;height:400px;display:flex;flex-direction:column;justify-content:center;gap:12px;background:#ffffff03;}
 #landscape-modal .landscape-qr-copy{order:-1;max-width:none;text-align:center;gap:5px;}
 #landscape-modal .landscape-qr-copy strong{font-size:14px;font-weight:500;letter-spacing:.04em;}
 #landscape-modal .landscape-qr-copy small{font-size:10px;}
-#landscape-modal .landscape-qr-box{width:286px;height:286px;padding:22px;border-radius:19px;}
+#landscape-modal .landscape-qr-box{width:336px;height:336px;flex-shrink:0;padding:22px;border-radius:19px;}
 #landscape-modal .landscape-close{top:max(16px,env(safe-area-inset-top));right:max(16px,env(safe-area-inset-right));width:44px;height:44px;}
 .qr-frame{width:218px;height:218px;padding:17px;border:2px solid #17128b;margin:16px auto 18px;border-radius:18px;}
 .qr-frame canvas{display:block;width:180px;height:180px;image-rendering:pixelated;}
